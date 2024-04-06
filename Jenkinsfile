@@ -23,7 +23,7 @@ pipeline {
         stage('Running image') {
             steps {
                 script {
-                    sh "docker run -d -p 8080:5000 ${imagename}:latest"
+                    sh "docker run -d -p 8081:5000 ${imagename}:latest"
                 }
             }
         }
