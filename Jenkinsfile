@@ -10,7 +10,7 @@ pipeline {
             steps {
                 git([url: 'https://github.com/SD1435/devops-project.git', branch: 'main'])
             }
-        } // Added missing closing brace for 'Cloning Git' stage
+        }
 
         stage('Building image') {
             steps {
@@ -33,7 +33,6 @@ pipeline {
                 script {
                     docker.withRegistry('', registryCredential) {
                         dockerImage.push("$BUILD_NUMBER")
-                        dockerImage.push('latest')
                     }
                 }
             }
